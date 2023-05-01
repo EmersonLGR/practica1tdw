@@ -94,48 +94,7 @@ const cambiarRechazar = (perro) => {
 
   return (
     <Grid container spacing={10}  style={styles.paperContainer}>
-      <Grid item md={4} >
-        <h2> Rechazados </h2>
-        <br />
-        {rechazar.map((rechazado) => (
-          <Card
-            key={rechazado.nombre}
-            sx={{
-              backgroundColor: "pink",
-              boxShadow: 1,
-              borderRadius: 2,
-              p: 2,
-              minWidth: 100,
-            }}
-          >
-            <CardMedia
-              component="img"
-              height="300"
-              width="100%"
-              image={rechazado.imagen}
-              alt={rechazado.nombre}
-            />
-            <CardContent>
-              <Typography gutterBottom variant="h5" component="div">
-                {rechazado.nombre}
-              </Typography>
-              <CardActions>
-                <Tooltip title="Cambiar">
-                  <span>
-                    <IconButton
-                      disabled={cargar}
-                      color="info"
-                      onClick={() => cambiarAceptar(rechazado)}
-                    >
-                      <FavoriteIcon />
-                    </IconButton>
-                  </span>
-                </Tooltip>
-              </CardActions>
-            </CardContent>
-          </Card>
-        ))}
-      </Grid>
+      
 
       <Grid item md={4} sm={12}>
 
@@ -238,6 +197,48 @@ const cambiarRechazar = (perro) => {
                       onClick={() => cambiarRechazar(aceptado)}
                     >
                       <HeartBrokenIcon />
+                    </IconButton>
+                  </span>
+                </Tooltip>
+              </CardActions>
+            </CardContent>
+          </Card>
+        ))}
+      </Grid>
+      <Grid item md={4} >
+        <h2> Rechazados </h2>
+        <br />
+        {rechazar.map((rechazado) => (
+          <Card
+            key={rechazado.nombre}
+            sx={{
+              backgroundColor: "pink",
+              boxShadow: 1,
+              borderRadius: 2,
+              p: 2,
+              minWidth: 100,
+            }}
+          >
+            <CardMedia
+              component="img"
+              height="300"
+              width="100%"
+              image={rechazado.imagen}
+              alt={rechazado.nombre}
+            />
+            <CardContent>
+              <Typography gutterBottom variant="h5" component="div">
+                {rechazado.nombre}
+              </Typography>
+              <CardActions>
+                <Tooltip title="Cambiar">
+                  <span>
+                    <IconButton
+                      disabled={cargar}
+                      color="info"
+                      onClick={() => cambiarAceptar(rechazado)}
+                    >
+                      <FavoriteIcon />
                     </IconButton>
                   </span>
                 </Tooltip>
