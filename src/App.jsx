@@ -112,7 +112,7 @@ const cambiarRechazar = (perro) => {
     <Grid container spacing={10}  style={styles.paperContainer}>
       
 
-      <Grid item md={4} sm={12}>
+      <Grid item xs={12} md={4}>
 
         {cargar ? (
           <Card>
@@ -183,7 +183,7 @@ const cambiarRechazar = (perro) => {
         )}
       </Grid>
 
-      <Grid item md={4} >
+      <Grid item xs={6} md={4}  justifyContent="space-between">
        <h2> Aceptados </h2>
         <br />
         {aceptar.map((aceptado) => (
@@ -195,6 +195,7 @@ const cambiarRechazar = (perro) => {
               borderRadius: 2,
               p: 2,
               minWidth: 100,
+             margin: 1,
             }}
           >
             <CardMedia
@@ -224,7 +225,7 @@ const cambiarRechazar = (perro) => {
           </Card>
         ))}
       </Grid>
-      <Grid item md={4} >
+      <Grid item xs={6} md={4} >
         <h2> Rechazados </h2>
         <br />
         {rechazar.map((rechazado) => (
@@ -236,6 +237,7 @@ const cambiarRechazar = (perro) => {
               borderRadius: 2,
               p: 2,
               minWidth: 100,
+              margin: 1 
             }}
           >
             <CardMedia
