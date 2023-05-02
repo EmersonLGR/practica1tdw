@@ -5,7 +5,7 @@ import AddReactionIcon from '@mui/icons-material/AddReaction';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import HeartBrokenIcon from '@mui/icons-material/HeartBroken';
 import FavoriteIcon from '@mui/icons-material/Favorite';
-
+import { LoremIpsum, loremIpsum } from 'lorem-ipsum';
 import './App.css'
 
 const obtenerPerro = async () => {
@@ -32,8 +32,21 @@ const styles = {
   }
  };
 
+ const lorem = new LoremIpsum({
+  sentencesPerParagraph: {
+    max: 6,
+    min: 4
+  },
+  wordsPerSentence: {
+    max: 10,
+    min: 4
+  }
+});
+
+
+
 function App() {
-  const [perro, setPerro] = useState ([{ nombre: "", imagen: ""}]);
+  const [perro, setPerro] = useState ([{ nombre: "", imagen: "", descripcion: ""}]);
   const [cargar, setCargar] = useState(true);
   const [aceptar, setAceptar]= useState ([]);
   const [rechazar, setRechazar] = useState ([]);
@@ -42,7 +55,8 @@ function App() {
     obtenerPerro().then((data) => {
       setPerro({
         nombre: generarNombre(6),
-        imagen: data.message
+        imagen: data.message,
+        descripcion: lorem.generateParagraphs(1)
       });
       setCargar(false);
     });
@@ -55,7 +69,8 @@ const aceptarPerro = () => {
   obtenerPerro().then((data) => {
     setPerro({
       nombre: generarNombre(6),
-      imagen: data.message
+      imagen: data.message,
+      descripcion:lorem.generateParagraphs(1)
     });
     setCargar(false);
   });
@@ -68,7 +83,8 @@ const rechazarPerro = () => {
   obtenerPerro().then((data) => {
   setPerro({
     nombre: generarNombre (6),
-    imagen: data.message
+    imagen: data.message,
+    descripcion: lorem.generateParagraphs(1)
   });
   setCargar(false);
   })
@@ -143,6 +159,9 @@ const cambiarRechazar = (perro) => {
               <Typography gutterBottom variant="h5" component="div">
                 {perro.nombre}
               </Typography>
+              <Typography variant="h6" align="justify" color="text.secondary">
+                    {perro.descripcion}
+                </Typography>
             </CardContent>
             <CardActions>
               <Tooltip title="Aceptar">
