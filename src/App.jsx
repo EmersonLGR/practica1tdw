@@ -28,17 +28,12 @@ const generarNombre = (num) => {
 
 };
 
-
-
-
-
-
 function App() {
   const [perro, setPerro] = useState ([{ nombre: "", imagen: "", descripcion: ""}]);
   const [cargar, setCargar] = useState(true);
   const [aceptar, setAceptar]= useState ([]);
   const [rechazar, setRechazar] = useState ([]);
-  const [desc, setDesc] = useState(false)
+  const [desc, setDesc] = useState(false);
 
   const styles = {
     paperContainer: {
@@ -200,8 +195,6 @@ const Mostrar = styled((props) => {
         )}
       </Grid>
 
-
-     
       <Grid item xs={6} md={4}  sx={{overflowY: "scroll", height: '800px' }} justifyContent="space-between">
       <h2
       style={{
@@ -248,7 +241,7 @@ const Mostrar = styled((props) => {
                   <span>
                     <IconButton
                       disabled={cargar}
-                      color="info"
+                      color="warning"
                       onClick={() => cambiarRechazar(aceptado)}
                     >
                       <HeartBrokenIcon />
@@ -322,7 +315,7 @@ const Mostrar = styled((props) => {
                   <span>
                     <IconButton
                       disabled={cargar}
-                      color="info"
+                      color="success"
                       onClick={() => cambiarAceptar(rechazado)}
                     >
                       <FavoriteIcon />
