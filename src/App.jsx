@@ -28,30 +28,6 @@ const generarNombre = (num) => {
 
 };
 
-const styles = {
-  paperContainer: {
-      height: 1356,
-      backgroundImage: `url(${"../public/Fondo.jpg"})`
-  }
- };
-
- const lorem = new LoremIpsum({
-  sentencesPerParagraph: {
-    max: 4,
-    min: 3
-  },
-  wordsPerSentence: {
-    max: 8,
-    min: 3
-  }
-});
-
-const Mostrar = styled((props) => {
-  const { expand, ...other } = props;
-  return <IconButton {...other} />;
-})(({ expand }) => ({
-  transform: !expand ? 'rotate(0deg)' : 'rotate(0deg)',
-}));
 
 
 
@@ -64,7 +40,25 @@ function App() {
   const [rechazar, setRechazar] = useState ([]);
   const [desc, setDesc] = useState(false)
 
-
+  const styles = {
+    paperContainer: {
+        height: 1356,
+        backgroundImage: `url(${"../public/Fondo.jpg"})`
+    }
+   };
+  
+   const lorem = new LoremIpsum({
+    sentencesPerParagraph: {
+      max: 4,
+      min: 3
+    },
+    wordsPerSentence: {
+      max: 8,
+      min: 3
+    }
+  });
+  
+  
 
   const expandir = () => {
     setDesc(!desc);
@@ -124,13 +118,17 @@ const cambiarRechazar = (perro) => {
   setCargar(false);
 };
 
+const Mostrar = styled((props) => {
+  const { expand, ...other } = props;
+  return <IconButton {...other} />;
+})(({ expand }) => ({
+  transform: !expand ? 'rotate(0deg)' : 'rotate(0deg)',
+}));
 
 
 
   return (
     <Grid container spacing={10}  style={styles.paperContainer}>
-      
-
       <Grid item xs={12} md={4} >
 
         {cargar ? (
