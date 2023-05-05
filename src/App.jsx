@@ -7,10 +7,9 @@ import HeartBrokenIcon from '@mui/icons-material/HeartBroken';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import { LoremIpsum } from 'lorem-ipsum';
 import { styled } from '@mui/material/styles';
-import InfoIcon from '@mui/icons-material/Info'
-
 import Collapse from '@mui/material/Collapse';
 import './App.css'
+
 
 const obtenerPerro = async () => {
   const url = "https://dog.ceo/api/breeds/image/random";
@@ -38,12 +37,12 @@ const styles = {
 
  const lorem = new LoremIpsum({
   sentencesPerParagraph: {
-    max: 6,
-    min: 4
+    max: 4,
+    min: 3
   },
   wordsPerSentence: {
-    max: 10,
-    min: 4
+    max: 8,
+    min: 3
   }
 });
 
@@ -51,7 +50,7 @@ const Mostrar = styled((props) => {
   const { expand, ...other } = props;
   return <IconButton {...other} />;
 })(({ expand }) => ({
-  transform: !expand ? 'rotate(0deg)' : 'rotate(180deg)',
+  transform: !expand ? 'rotate(0deg)' : 'rotate(0deg)',
 }));
 
 
@@ -262,7 +261,7 @@ const cambiarRechazar = (perro) => {
                     expand={desc}
                     onClick={expandir}
                   >
-                  <InfoIcon />
+                <h5>info</h5>
                   </Mostrar>
                   <Collapse in={desc} >
                     <CardContent>
@@ -336,7 +335,7 @@ const cambiarRechazar = (perro) => {
                     expand={desc}
                     onClick={expandir}
                   >
-                  <InfoIcon />
+                  <h5>info</h5>
                   </Mostrar>
                   <Collapse in={desc} >
                     <CardContent>
