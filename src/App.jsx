@@ -6,6 +6,10 @@ import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import HeartBrokenIcon from '@mui/icons-material/HeartBroken';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import { LoremIpsum } from 'lorem-ipsum';
+import { styled } from '@mui/material/styles';
+import InfoIcon from '@mui/icons-material/Info'
+
+import Collapse from '@mui/material/Collapse';
 import './App.css'
 
 const obtenerPerro = async () => {
@@ -43,6 +47,15 @@ const styles = {
   }
 });
 
+const Mostrar = styled((props) => {
+  const { expand, ...other } = props;
+  return <IconButton {...other} />;
+})(({ expand }) => ({
+  transform: !expand ? 'rotate(0deg)' : 'rotate(180deg)',
+}));
+
+
+
 
 
 function App() {
@@ -50,6 +63,13 @@ function App() {
   const [cargar, setCargar] = useState(true);
   const [aceptar, setAceptar]= useState ([]);
   const [rechazar, setRechazar] = useState ([]);
+  const [desc, setDesc] = useState(false)
+
+
+
+  const expandir = () => {
+    setDesc(!desc);
+  };
 
   useEffect(() => {
     obtenerPerro().then((data) => {
@@ -185,7 +205,7 @@ const cambiarRechazar = (perro) => {
 
 
      
-      <Grid item xs={6} md={4}  sx={{overflowY: "scroll", height: '800px',  }} justifyContent="space-between">
+      <Grid item xs={6} md={4}  sx={{overflowY: "scroll", height: '800px' }} justifyContent="space-between">
       <h2
       style={{
       backdropFilter: "blur(1px)",
@@ -238,6 +258,20 @@ const cambiarRechazar = (perro) => {
                     </IconButton>
                   </span>
                 </Tooltip>
+                <Mostrar
+                    expand={desc}
+                    onClick={expandir}
+                  >
+                  <InfoIcon />
+                  </Mostrar>
+                  <Collapse in={desc} >
+                    <CardContent>
+                      <h3> Descripcion:</h3>
+                      <Typography paragraph>
+                        {aceptado.descripcion}
+                      </Typography>
+                    </CardContent>
+                  </Collapse>
               </CardActions>
             </CardContent>
           </Card>
@@ -245,7 +279,7 @@ const cambiarRechazar = (perro) => {
       </Grid>
    
       
-      <Grid item xs={6} md={4}  sx={{overflowY: "scroll", height: '800px',  }} justifyContent="space-between">
+      <Grid item xs={6} md={4}  sx={{overflowY: "scroll", height: '800px'  }} justifyContent="space-between">
       <h2
       style={{
       backdropFilter: "blur(1px)",
@@ -298,6 +332,20 @@ const cambiarRechazar = (perro) => {
                     </IconButton>
                   </span>
                 </Tooltip>
+                <Mostrar
+                    expand={desc}
+                    onClick={expandir}
+                  >
+                  <InfoIcon />
+                  </Mostrar>
+                  <Collapse in={desc} >
+                    <CardContent>
+                      <h3> Descripcion:</h3>
+                      <Typography paragraph>
+                        {rechazado.descripcion}
+                      </Typography>
+                    </CardContent>
+                  </Collapse>
               </CardActions>
             </CardContent>
           </Card>
