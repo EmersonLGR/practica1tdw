@@ -5,7 +5,7 @@ import AddReactionIcon from '@mui/icons-material/AddReaction';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import HeartBrokenIcon from '@mui/icons-material/HeartBroken';
 import FavoriteIcon from '@mui/icons-material/Favorite';
-import { LoremIpsum, loremIpsum } from 'lorem-ipsum';
+import { LoremIpsum } from 'lorem-ipsum';
 import './App.css'
 
 const obtenerPerro = async () => {
@@ -112,7 +112,7 @@ const cambiarRechazar = (perro) => {
     <Grid container spacing={10}  style={styles.paperContainer}>
       
 
-      <Grid item xs={12} md={4}>
+      <Grid item xs={12} md={4} >
 
         {cargar ? (
           <Card>
@@ -183,8 +183,25 @@ const cambiarRechazar = (perro) => {
         )}
       </Grid>
 
-      <Grid item xs={6} md={4}  justifyContent="space-between">
-       <h2> Aceptados </h2>
+
+     
+      <Grid item xs={6} md={4}  sx={{overflowY: "scroll", height: '800px',  }} justifyContent="space-between">
+      <h2
+      style={{
+      backdropFilter: "blur(1px)",
+      backgroundColor: "rgba(255, 255, 255, 0.5)",
+      padding: "10px",
+      borderRadius: "2px",
+      textAlign: "center",
+      position: "absolute",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      
+      }}
+    >
+     Aceptados
+    </h2>
         <br />
         {aceptar.map((aceptado) => (
           <Card
@@ -195,7 +212,8 @@ const cambiarRechazar = (perro) => {
               borderRadius: 2,
               p: 2,
               minWidth: 100,
-             margin: 1,
+              margin: 1,
+              
             }}
           >
             <CardMedia
@@ -225,8 +243,25 @@ const cambiarRechazar = (perro) => {
           </Card>
         ))}
       </Grid>
-      <Grid item xs={6} md={4} >
-        <h2> Rechazados </h2>
+   
+      
+      <Grid item xs={6} md={4}  sx={{overflowY: "scroll", height: '800px',  }} justifyContent="space-between">
+      <h2
+      style={{
+      backdropFilter: "blur(1px)",
+      backgroundColor: "rgba(255, 255, 255, 0.5)",
+      padding: "10px",
+      borderRadius: "2px",
+      textAlign: "center",
+      position: "absolute",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      
+      }}
+    >
+      Rechazados 
+      </h2>
         <br />
         {rechazar.map((rechazado) => (
           <Card
